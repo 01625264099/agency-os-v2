@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agency OS v2</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="eyebrow">Agency OS v2</div>
+      <strong>BD to US Execution</strong>
+    </div>
+    <nav>
+      <button class="nav active" data-view="overview">Overview</button>
+      <button class="nav" data-view="sprint">Sprint</button>
+      <button class="nav" data-view="prospects">Prospects</button>
+      <button class="nav" data-view="outreach">Outreach</button>
+      <button class="nav" data-view="playbook">Playbook</button>
+      <button class="nav" data-view="assets">Assets</button>
+      <button class="nav" data-view="settings">Settings</button>
+    </nav>
+    <div class="clockbox">
+      <span>BD</span><strong id="bdTime">00:00</strong>
+      <span>New York</span><strong id="nyTime">00:00</strong>
+    </div>
+  </aside>
+
+  <main>
+    <section id="overview" class="view active">
+      <header class="topline">
+        <div>
+          <h1>Command Center</h1>
+          <p>Local clinics. AI receptionist. Pre-sell first, build after payment.</p>
+        </div>
+        <button id="resetDay" class="ghost">Reset Today</button>
+      </header>
+
+      <div class="metrics">
+        <article>
+          <span>Outreach Sent</span>
+          <strong id="mSent">0</strong>
+          <small id="mSentTarget">/ 20 daily target</small>
+        </article>
+        <article>
+          <span>Calls Booked</span>
+          <strong id="mCalls">0</strong>
+          <small>Goal: 5 per week</small>
+        </article>
+        <article>
+          <span>Active Clients</span>
+          <strong id="mClients">0</strong>
+          <small>$499/mo retainers</small>
+        </article>
+        <article>
+          <span>MRR</span>
+          <strong id="mRevenue">$0</strong>
+          <small>Current monthly run rate</small>
+        </article>
+      </div>
+
+      <div class="grid two">
+        <section class="panel">
+          <h2>Today</h2>
+          <div class="formgrid">
+            <label>DMs/Emails Sent<input id="dailySent" type="number" min="0"></label>
+            <label>Discovery Calls Booked<input id="dailyCalls" type="number" min="0"></label>
+            <label>Active Retainer Clients<input id="dailyClients" type="number" min="0"></label>
+          </div>
+          <button id="saveDaily">Save Daily Stats</button>
+        </section>
+
+        <section class="panel">
+          <h2>Validation Checklist</h2>
+          <div id="progressText" class="progress-label">0%</div>
+          <div class="progress"><span id="progressFill"></span></div>
+          <div id="checklistList" class="checklist"></div>
+        </section>
+      </div>
+
+      <section class="panel">
+        <h2>Activity</h2>
+        <div id="activityList" class="activity"></div>
+      </section>
+    </section>
+
+    <section id="sprint" class="view">
+      <header class="topline">
+        <div>
+          <h1>7-Day Monetization Sprint</h1>
+          <p>One niche, daily outreach, fast calls, Deel invoice after verbal yes. No building before payment.</p>
+        </div>
+        <button id="generateSprintQueue">Generate Outreach Queue</button>
+      </header>
+
+      <div class="metrics">
+        <article>
+          <span>Prospects Needed</span>
+          <strong id="sProspects">100</strong>
+          <small>first sprint list</small>
+        </article>
+        <article>
+          <span>Daily Sends</span>
+          <strong id="sDaily">20</strong>
+          <small>minimum activity</small>
+        </article>
+        <article>
+          <span>Call Target</span>
+          <strong id="sCalls">3</strong>
+          <small>book this week</small>
+        </article>
+        <article>
+          <span>First Cash Goal</span>
+          <strong id="sCash">$499</strong>
+          <small>one paid client</small>
+        </article>
+      </div>
+
+      <div class="grid two">
+        <section class="panel">
+          <h2>Sprint Tasks</h2>
+          <div id="sprintList" class="checklist"></div>
+        </section>
+        <section class="panel">
+          <h2>Today’s Operating Block</h2>
+          <ol class="tight-list">
+            <li>Add 20 qualified prospects before sending anything.</li>
+            <li>Prioritize businesses with phone-heavy booking and weak front-desk coverage.</li>
+            <li>Generate the queue and review every message manually.</li>
+            <li>Send from Gmail or Instagram by hand while Manual approval is active.</li>
+            <li>Any reply gets one goal: book the 10-minute demo.</li>
+            <li>On the demo, show ROI and close to Deel invoice.</li>
+          </ol>
+        </section>
+      </div>
+
+      <div class="grid two">
+        <section class="panel">
+          <h2>Lead Qualification Rules</h2>
+          <ul>
+            <li>Best: med spa, dental clinic, wellness clinic, aesthetic clinic.</li>
+            <li>Strong signal: online booking, phone number visible, busy city, high-ticket services.</li>
+            <li>Pain signal: missed calls, voicemail, slow replies, front desk bottleneck, many reviews mentioning calls.</li>
+            <li>Avoid for now: hospitals, chains, enterprise clinics, businesses without appointment revenue.</li>
+          </ul>
+        </section>
+        <section class="panel">
+          <h2>Reply Handling</h2>
+          <textarea readonly>Positive reply:
+Great. Here is my 10-minute demo link: [Calendly]. I’ll show the exact missed-call ROI math and what the AI receptionist would do for your clinic.
+
+Price question:
+It is $499/month, no setup fee for the first few early clients. If it recovers two missed bookings, it usually pays for itself.
+
+Not now:
+Totally fair. Should I check back next month, or is missed-call coverage not a priority right now?</textarea>
+        </section>
+      </div>
+    </section>
+
+    <section id="prospects" class="view">
+      <header class="topline">
+        <div>
+          <h1>Prospect CRM</h1>
+          <p>Add leads during BD daytime, then queue outreach in batches.</p>
+        </div>
+        <button id="exportCsv" class="ghost">Export CSV</button>
+      </header>
+
+      <section class="panel">
+        <h2>Add Lead</h2>
+        <div class="formgrid add-lead">
+          <label>Business Name<input id="pName" placeholder="Glow Med Spa"></label>
+          <label>Owner Name<input id="pOwner" placeholder="Dr. Smith"></label>
+          <label>Contact / City<input id="pContact" placeholder="Miami, FL"></label>
+          <label>Email or IG Handle<input id="pEmail" placeholder="owner@example.com"></label>
+          <label>Phone<input id="pPhone" placeholder="+1..."></label>
+          <label>Website<input id="pWebsite" placeholder="https://..."></label>
+          <label>Pain Signal<input id="pPain" placeholder="Voicemail, busy front desk, slow replies"></label>
+          <label>Channel
+            <select id="pChannel">
+              <option>Email</option>
+              <option>Instagram</option>
+            </select>
+          </label>
+        </div>
+        <button id="addProspect">Add Lead</button>
+      </section>
+
+      <section class="panel table-panel">
+        <div class="toolbar">
+          <input id="search" placeholder="Search prospects">
+          <select id="statusFilter">
+            <option value="">All statuses</option>
+            <option>New</option>
+            <option>Contacted</option>
+            <option>Zoom Booked</option>
+            <option>Pre-Sold</option>
+            <option>Active</option>
+          </select>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Business</th>
+              <th>Contact</th>
+              <th>Score</th>
+              <th>Channel</th>
+              <th>Status</th>
+              <th>Next Action</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody id="prospectsBody"></tbody>
+        </table>
+      </section>
+    </section>
+
+    <section id="outreach" class="view">
+      <header class="topline">
+        <div>
+          <h1>Outreach Engine</h1>
+          <p>Generate a daily queue, personalize messages, then send manually or through a Make webhook.</p>
+        </div>
+        <button id="generateQueue">Generate Today’s Queue</button>
+      </header>
+
+      <div class="grid two">
+        <section class="panel">
+          <h2>Queued Messages</h2>
+          <div id="queueList" class="queue"></div>
+        </section>
+        <section class="panel">
+          <h2>Discovery Close</h2>
+          <div class="script">
+            <p><strong>Audit:</strong> Where does the call go when the front desk is busy?</p>
+            <p><strong>Quantify:</strong> How many missed calls per week, and how many never leave voicemail?</p>
+            <p><strong>Offer:</strong> The AI answers after 3 rings, sounds human, answers FAQs, and books into the calendar.</p>
+            <p><strong>Close:</strong> It is $499/month, no setup fee. Two recovered bookings usually cover it.</p>
+          </div>
+          <div class="roi">
+            <label>Avg Ticket<input id="ticket" type="number" value="300"></label>
+            <label>Missed Calls / Month<input id="missed" type="number" value="40"></label>
+            <label>Booking Rate %<input id="rate" type="number" value="15"></label>
+            <output id="roiOutput">$1,301 net upside</output>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section id="playbook" class="view">
+      <header class="topline">
+        <div>
+          <h1>Execution Playbook</h1>
+          <p>The rhythm from Bangladesh to US clinic owners.</p>
+        </div>
+      </header>
+      <div class="grid two">
+        <section class="panel">
+          <h2>Async Shift: 10 AM - 4 PM BD</h2>
+          <ul>
+            <li>Scrape leads and add prospects.</li>
+            <li>Generate the daily outreach queue.</li>
+            <li>Send 20 personalized DMs or emails.</li>
+            <li>Follow up on any replies before US morning.</li>
+          </ul>
+        </section>
+        <section class="panel">
+          <h2>Live Shift: 9 PM - 1 AM BD</h2>
+          <ul>
+            <li>Take Zoom calls only in this window.</li>
+            <li>Use the ROI math during the call.</li>
+            <li>Collect Payoneer or Deel payment first.</li>
+            <li>Build Vapi and GHL only after payment.</li>
+          </ul>
+        </section>
+      </div>
+      <section class="panel">
+        <h2>Five-Day Delivery After Payment</h2>
+        <ol>
+          <li>Create the client sub-account in GoHighLevel.</li>
+          <li>Connect calendar and phone forwarding.</li>
+          <li>Create the Vapi inbound assistant and clinic prompt.</li>
+          <li>Connect calendar booking with Make or Vapi tool calling.</li>
+          <li>Run test calls, then monitor transcripts for the first week.</li>
+        </ol>
+      </section>
+    </section>
+
+    <section id="assets" class="view">
+      <header class="topline">
+        <div>
+          <h1>Sales Assets</h1>
+          <p>Copy-ready scripts for the moments that decide whether the system turns into revenue.</p>
+        </div>
+      </header>
+
+      <div class="grid two">
+        <section class="panel">
+          <h2>Deel Invoice Message</h2>
+          <textarea id="deelMessage" readonly></textarea>
+          <button class="ghost copy-asset" data-copy-asset="deelMessage">Copy</button>
+        </section>
+        <section class="panel">
+          <h2>Post-Payment Onboarding Message</h2>
+          <textarea id="onboardingMessage" readonly></textarea>
+          <button class="ghost copy-asset" data-copy-asset="onboardingMessage">Copy</button>
+        </section>
+      </div>
+
+      <div class="grid two">
+        <section class="panel">
+          <h2>Discovery Call Close</h2>
+          <textarea id="closeScript" readonly></textarea>
+          <button class="ghost copy-asset" data-copy-asset="closeScript">Copy</button>
+        </section>
+        <section class="panel">
+          <h2>Client Build Checklist</h2>
+          <ol class="tight-list">
+            <li>Confirm business name, address, services, FAQs, hours, and pricing guardrails.</li>
+            <li>Confirm forwarding number and calendar access process.</li>
+            <li>Create GHL sub-account only after payment confirmation.</li>
+            <li>Create Vapi assistant with clinic-specific receptionist prompt.</li>
+            <li>Test 3 calls: booking, FAQ, and out-of-scope question.</li>
+            <li>Send launch summary and monitor transcripts for 7 days.</li>
+          </ol>
+        </section>
+      </div>
+
+      <section class="panel">
+        <h2>Make Payload Map</h2>
+        <div class="payload-grid">
+          <div><strong>Outreach webhook</strong><p><code>type: outreach.send</code>, prospect, message, channel, sender email.</p></div>
+          <div><strong>Calendar webhook</strong><p><code>type: calendar.book_call</code>, prospect, booking link, Zoom link.</p></div>
+          <div><strong>Invoice workflow</strong><p>Manual Deel action for now. Use the copied invoice message after the client says yes.</p></div>
+          <div><strong>Onboarding workflow</strong><p>Manual approval first. Use GHL/Vapi credentials only after payment.</p></div>
+        </div>
+      </section>
+    </section>
+
+    <section id="settings" class="view">
+      <header class="topline">
+        <div>
+          <h1>Execution Settings</h1>
+          <p>Use manual mode now. Add a Make webhook later to send queue items into Gmail, GHL, or another tool.</p>
+        </div>
+      </header>
+      <section class="panel">
+          <div class="formgrid">
+            <label>Your Name<input id="ownerName"></label>
+            <label>Agency Name<input id="agencyName"></label>
+            <label>Target Niche<input id="niche"></label>
+            <label>Sender Email<input id="senderEmail" placeholder="you@example.com"></label>
+            <label>Booking Link<input id="bookingLink" placeholder="Calendly or Zoom booking link"></label>
+            <label>Zoom Booking Link<input id="zoomBookingLink" placeholder="Optional Zoom Scheduler link"></label>
+            <label>Invoice Link<input id="invoiceLink" placeholder="Deel, Payoneer, Stripe, etc."></label>
+            <label>Payment Method<input id="paymentMethod" placeholder="Deel manual invoice"></label>
+            <label>Monthly Price<input id="price" type="number" min="0"></label>
+            <label>Daily Outreach Target<input id="target" type="number" min="1"></label>
+            <label>Approval Mode
+              <select id="approvalMode">
+                <option>Manual approval</option>
+                <option>Webhook auto-send</option>
+              </select>
+            </label>
+            <label class="wide">Target US Cities / States<input id="targetCities" placeholder="Miami FL, Austin TX..."></label>
+            <label class="wide">Invoice Instructions<textarea id="invoiceInstructions" placeholder="What to do when a prospect agrees"></textarea></label>
+            <label class="wide">Lead Source URL<input id="leadSourceUrl" placeholder="Google Maps search, Apollo list, IG hashtag, etc."></label>
+            <label class="wide">Make / Outreach Webhook<input id="webhook" placeholder="https://hook.make.com/..."></label>
+            <label class="wide">Calendar Webhook<input id="calendarWebhook" placeholder="Make webhook for Calendly/Google Calendar"></label>
+            <label class="wide">GoHighLevel Webhook<input id="ghlWebhook" placeholder="Make webhook for GHL onboarding"></label>
+            <label class="wide">Vapi Webhook<input id="vapiWebhook" placeholder="Make webhook for Vapi assistant setup"></label>
+          </div>
+        <button id="saveSettings">Save Settings</button>
+        <div class="secret-status" id="secretStatus"></div>
+      </section>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+{
+  "settings": {
+    "ownerName": "Saif",
+    "agencyName": "Agency OS",
+    "offer": "24/7 AI Receptionist for local clinics",
+    "niche": "Med spas",
+    "targetCities": "Miami FL, Austin TX, Dallas TX, Phoenix AZ, Los Angeles CA",
+    "price": 499,
+    "dailyOutreachTarget": 20,
+    "approvalMode": "Manual approval",
+    "makeWebhookUrl": "",
+    "senderEmail": "fahimsaif99@gmail.com",
+    "bookingLink": "https://calendly.com/fahimsaif99/10-minute-ai-receptionist-demo",
+    "zoomBookingLink": "https://scheduler.zoom.us/fahim-saif/ai-receptionist",
+    "invoiceLink": "",
+    "paymentMethod": "Deel manual invoice",
+    "invoiceInstructions": "After the prospect verbally agrees, create a client-specific Deel contract or external invoice for $499/mo. Tell the client: I will send the Deel invoice now; once it is paid, I start the AI receptionist build.",
+    "ghlWebhookUrl": "",
+    "vapiWebhookUrl": "",
+    "calendarWebhookUrl": "",
+    "leadSourceUrl": ""
+  },
+  "daily": {
+    "date": "",
+    "sent": 0,
+    "callsBooked": 0,
+    "activeClients": 0
+  },
+  "checklist": [
+    {
+      "text": "Setup Deel or Payoneer to receive USD in Bangladesh.",
+      "phase": "Logistics",
+      "done": false
+    },
+    {
+      "text": "Build a simple 1-page offer: AI Receptionist for Med Spas.",
+      "phase": "Validation",
+      "done": false
+    },
+    {
+      "text": "Send 50 IG DMs or emails to US clinics during BD daytime.",
+      "phase": "Outreach",
+      "done": false
+    },
+    {
+      "text": "Conduct 5 Zoom discovery calls during the BD night shift.",
+      "phase": "Sales",
+      "done": false
+    },
+    {
+      "text": "Pre-sell 3 clinics at $499/mo and collect invoice payment.",
+      "phase": "Sales",
+      "done": false
+    },
+    {
+      "text": "Create Vapi.ai and GoHighLevel accounts after payment.",
+      "phase": "Build Phase",
+      "done": false
+    },
+    {
+      "text": "Build call-forwarding workflow from GHL to Vapi.",
+      "phase": "Build Phase",
+      "done": false
+    },
+    {
+      "text": "Deploy first 3 clients and monitor transcriptions.",
+      "phase": "Deployment",
+      "done": false
+    }
+  ],
+  "prospects": [],
+  "queue": [],
+  "sprint": [
+    {
+      "text": "Commit to med spas only for the first 7 days.",
+      "phase": "Positioning",
+      "done": false
+    },
+    {
+      "text": "Build 100 med spa prospects: 20 each from Miami, Austin, Dallas, Phoenix, and Los Angeles.",
+      "phase": "Lead Sourcing",
+      "done": false
+    },
+    {
+      "text": "Send 20 personalized messages per day using the missed-call angle.",
+      "phase": "Outreach",
+      "done": false
+    },
+    {
+      "text": "Book at least 3 demo calls using the Calendly link.",
+      "phase": "Booking",
+      "done": false
+    },
+    {
+      "text": "Run every call with the ROI calculator and close into a Deel invoice.",
+      "phase": "Sales",
+      "done": false
+    },
+    {
+      "text": "After payment, collect onboarding info and build only that paid client.",
+      "phase": "Fulfillment",
+      "done": false
+    },
+    {
+      "text": "Get one proof asset: testimonial, screenshot, or AI-booked appointment result.",
+      "phase": "Proof",
+      "done": false
+    }
+  ],
+  "activity": [
+    {
+      "id": "a_public_seed",
+      "message": "Public deployment seed initialized",
+      "meta": {},
+      "at": "2026-05-02T00:00:00.000Z"
+    }
+  ]
+}
